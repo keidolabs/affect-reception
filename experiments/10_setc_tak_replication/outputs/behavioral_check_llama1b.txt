@@ -1,0 +1,39 @@
+Set C Behavioral Check — Llama-3.2-1B
+==================================================
+
+Suffix: '\n\nEmotion:'
+Pass criterion: ≥5/8 emotions have plausible emotion token in top-10
+
+[PASS] admiration
+  Top-10: ['\xa0', ' ', ' happiness', ' happy', ' Happy', ' Sad', ' love', ' Ang', ' Fear', ' F']
+  Expected any of: [' admiration', ' respect', ' awe', ' pride']
+
+[PASS] amazement
+  Top-10: [' Surprise', ' surprise', ' I', ' Star', ' The', ' A', '\xa0', ' ', ' Sur', ' What']
+  Expected any of: [' surprise', ' wonder', ' amazement', ' shock']
+
+[PASS] ecstasy
+  Top-10: [' I', ' ', ' Happy', ' Joy', ' happiness', ' happy', ' Ang', ' Happiness', ' Sad', ' Exc']
+  Expected any of: [' joy', ' happiness', ' euphoria', ' ecstasy']
+
+[PASS] grief
+  Top-10: [' Sad', ' sadness', ' I', ' Ang', ' sad', ' ', ' anger', ' F', ' Fear', ' Dis']
+  Expected any of: [' sadness', ' grief', ' sorrow', ' loss']
+
+[PASS] loathing
+  Top-10: [' Ang', ' disgusted', ' disgust', ' anger', ' Dis', ' Sad', ' Angry', ' angry', ' sad', ' Shock']
+  Expected any of: [' disgust', ' loathing', ' contempt', ' hatred']
+
+[PASS] rage
+  Top-10: [' Ang', ' anger', ' Angry', ' Sad', ' angry', ' F', ' ', ' I', ' Dis', '<|end_of_text|>']
+  Expected any of: [' anger', ' rage', ' fury', ' frustration']
+
+[PASS] terror
+  Top-10: [' Fear', ' fear', ' Ang', ' Sad', ' ', ' F', ' I', ' anger', ' Shock', ' sadness']
+  Expected any of: [' fear', ' terror', ' panic', ' anxiety']
+
+[PASS] vigilance
+  Top-10: [' Fear', ' fear', ' Anxiety', ' anxiety', ' Vig', ' Ang', ' The', ' A', ' I', ' F']
+  Expected any of: [' anxiety', ' vigilance', ' alertness', ' anticipation']
+
+Result: 8/8 emotions passed → Behavioral gate: PASS

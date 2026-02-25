@@ -1,0 +1,1922 @@
+[
+  {
+    "index": 0,
+    "id": "B-admiration-d1-v1",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-admiration-d1-c1",
+    "word_count": 132,
+    "n_tokens": 157
+  },
+  {
+    "index": 1,
+    "id": "B-admiration-d1-v2",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-admiration-d1-c2",
+    "word_count": 124,
+    "n_tokens": 148
+  },
+  {
+    "index": 2,
+    "id": "B-admiration-d1-v3",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-admiration-d1-c3",
+    "word_count": 149,
+    "n_tokens": 170
+  },
+  {
+    "index": 3,
+    "id": "B-admiration-d1-v4",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-admiration-d1-c4",
+    "word_count": 119,
+    "n_tokens": 135
+  },
+  {
+    "index": 4,
+    "id": "B-admiration-d2-v1",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-admiration-d2-c1",
+    "word_count": 135,
+    "n_tokens": 159
+  },
+  {
+    "index": 5,
+    "id": "B-admiration-d2-v2",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-admiration-d2-c2",
+    "word_count": 124,
+    "n_tokens": 151
+  },
+  {
+    "index": 6,
+    "id": "B-admiration-d2-v3",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-admiration-d2-c3",
+    "word_count": 142,
+    "n_tokens": 170
+  },
+  {
+    "index": 7,
+    "id": "B-admiration-d2-v4",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-admiration-d2-c4",
+    "word_count": 140,
+    "n_tokens": 160
+  },
+  {
+    "index": 8,
+    "id": "B-admiration-d3-v1",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-admiration-d3-c1",
+    "word_count": 144,
+    "n_tokens": 167
+  },
+  {
+    "index": 9,
+    "id": "B-admiration-d3-v2",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-admiration-d3-c2",
+    "word_count": 131,
+    "n_tokens": 155
+  },
+  {
+    "index": 10,
+    "id": "B-admiration-d3-v3",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-admiration-d3-c3",
+    "word_count": 146,
+    "n_tokens": 165
+  },
+  {
+    "index": 11,
+    "id": "B-admiration-d3-v4",
+    "emotion": "admiration",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-admiration-d3-c4",
+    "word_count": 163,
+    "n_tokens": 182
+  },
+  {
+    "index": 12,
+    "id": "B-amazement-d1-v1",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-amazement-d1-c1",
+    "word_count": 111,
+    "n_tokens": 129
+  },
+  {
+    "index": 13,
+    "id": "B-amazement-d1-v2",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-amazement-d1-c2",
+    "word_count": 135,
+    "n_tokens": 150
+  },
+  {
+    "index": 14,
+    "id": "B-amazement-d1-v3",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-amazement-d1-c3",
+    "word_count": 124,
+    "n_tokens": 139
+  },
+  {
+    "index": 15,
+    "id": "B-amazement-d1-v4",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-amazement-d1-c4",
+    "word_count": 124,
+    "n_tokens": 145
+  },
+  {
+    "index": 16,
+    "id": "B-amazement-d2-v1",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-amazement-d2-c1",
+    "word_count": 134,
+    "n_tokens": 150
+  },
+  {
+    "index": 17,
+    "id": "B-amazement-d2-v2",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-amazement-d2-c2",
+    "word_count": 146,
+    "n_tokens": 166
+  },
+  {
+    "index": 18,
+    "id": "B-amazement-d2-v3",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-amazement-d2-c3",
+    "word_count": 129,
+    "n_tokens": 150
+  },
+  {
+    "index": 19,
+    "id": "B-amazement-d2-v4",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-amazement-d2-c4",
+    "word_count": 128,
+    "n_tokens": 147
+  },
+  {
+    "index": 20,
+    "id": "B-amazement-d3-v1",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-amazement-d3-c1",
+    "word_count": 137,
+    "n_tokens": 153
+  },
+  {
+    "index": 21,
+    "id": "B-amazement-d3-v2",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-amazement-d3-c2",
+    "word_count": 143,
+    "n_tokens": 165
+  },
+  {
+    "index": 22,
+    "id": "B-amazement-d3-v3",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-amazement-d3-c3",
+    "word_count": 138,
+    "n_tokens": 153
+  },
+  {
+    "index": 23,
+    "id": "B-amazement-d3-v4",
+    "emotion": "amazement",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-amazement-d3-c4",
+    "word_count": 121,
+    "n_tokens": 143
+  },
+  {
+    "index": 24,
+    "id": "B-ecstasy-d1-v1",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-ecstasy-d1-c1",
+    "word_count": 121,
+    "n_tokens": 143
+  },
+  {
+    "index": 25,
+    "id": "B-ecstasy-d1-v2",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-ecstasy-d1-c2",
+    "word_count": 120,
+    "n_tokens": 135
+  },
+  {
+    "index": 26,
+    "id": "B-ecstasy-d1-v3",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-ecstasy-d1-c3",
+    "word_count": 130,
+    "n_tokens": 148
+  },
+  {
+    "index": 27,
+    "id": "B-ecstasy-d1-v4",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-ecstasy-d1-c4",
+    "word_count": 104,
+    "n_tokens": 125
+  },
+  {
+    "index": 28,
+    "id": "B-ecstasy-d2-v1",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-ecstasy-d2-c1",
+    "word_count": 117,
+    "n_tokens": 135
+  },
+  {
+    "index": 29,
+    "id": "B-ecstasy-d2-v2",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-ecstasy-d2-c2",
+    "word_count": 103,
+    "n_tokens": 123
+  },
+  {
+    "index": 30,
+    "id": "B-ecstasy-d2-v3",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-ecstasy-d2-c3",
+    "word_count": 116,
+    "n_tokens": 134
+  },
+  {
+    "index": 31,
+    "id": "B-ecstasy-d2-v4",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-ecstasy-d2-c4",
+    "word_count": 105,
+    "n_tokens": 121
+  },
+  {
+    "index": 32,
+    "id": "B-ecstasy-d3-v1",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-ecstasy-d3-c1",
+    "word_count": 112,
+    "n_tokens": 129
+  },
+  {
+    "index": 33,
+    "id": "B-ecstasy-d3-v2",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-ecstasy-d3-c2",
+    "word_count": 111,
+    "n_tokens": 125
+  },
+  {
+    "index": 34,
+    "id": "B-ecstasy-d3-v3",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-ecstasy-d3-c3",
+    "word_count": 119,
+    "n_tokens": 138
+  },
+  {
+    "index": 35,
+    "id": "B-ecstasy-d3-v4",
+    "emotion": "ecstasy",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-ecstasy-d3-c4",
+    "word_count": 122,
+    "n_tokens": 149
+  },
+  {
+    "index": 36,
+    "id": "B-grief-d1-v1",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-grief-d1-c1",
+    "word_count": 86,
+    "n_tokens": 103
+  },
+  {
+    "index": 37,
+    "id": "B-grief-d1-v2",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-grief-d1-c2",
+    "word_count": 78,
+    "n_tokens": 90
+  },
+  {
+    "index": 38,
+    "id": "B-grief-d1-v3",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-grief-d1-c3",
+    "word_count": 89,
+    "n_tokens": 107
+  },
+  {
+    "index": 39,
+    "id": "B-grief-d1-v4",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-grief-d1-c4",
+    "word_count": 95,
+    "n_tokens": 110
+  },
+  {
+    "index": 40,
+    "id": "B-grief-d2-v1",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-grief-d2-c1",
+    "word_count": 91,
+    "n_tokens": 114
+  },
+  {
+    "index": 41,
+    "id": "B-grief-d2-v2",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-grief-d2-c2",
+    "word_count": 100,
+    "n_tokens": 118
+  },
+  {
+    "index": 42,
+    "id": "B-grief-d2-v3",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-grief-d2-c3",
+    "word_count": 94,
+    "n_tokens": 107
+  },
+  {
+    "index": 43,
+    "id": "B-grief-d2-v4",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-grief-d2-c4",
+    "word_count": 104,
+    "n_tokens": 118
+  },
+  {
+    "index": 44,
+    "id": "B-grief-d3-v1",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-grief-d3-c1",
+    "word_count": 99,
+    "n_tokens": 113
+  },
+  {
+    "index": 45,
+    "id": "B-grief-d3-v2",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-grief-d3-c2",
+    "word_count": 88,
+    "n_tokens": 107
+  },
+  {
+    "index": 46,
+    "id": "B-grief-d3-v3",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-grief-d3-c3",
+    "word_count": 94,
+    "n_tokens": 109
+  },
+  {
+    "index": 47,
+    "id": "B-grief-d3-v4",
+    "emotion": "grief",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-grief-d3-c4",
+    "word_count": 90,
+    "n_tokens": 109
+  },
+  {
+    "index": 48,
+    "id": "B-loathing-d1-v1",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-loathing-d1-c1",
+    "word_count": 93,
+    "n_tokens": 115
+  },
+  {
+    "index": 49,
+    "id": "B-loathing-d1-v2",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-loathing-d1-c2",
+    "word_count": 99,
+    "n_tokens": 127
+  },
+  {
+    "index": 50,
+    "id": "B-loathing-d1-v3",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-loathing-d1-c3",
+    "word_count": 111,
+    "n_tokens": 131
+  },
+  {
+    "index": 51,
+    "id": "B-loathing-d1-v4",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-loathing-d1-c4",
+    "word_count": 112,
+    "n_tokens": 129
+  },
+  {
+    "index": 52,
+    "id": "B-loathing-d2-v1",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-loathing-d2-c1",
+    "word_count": 110,
+    "n_tokens": 120
+  },
+  {
+    "index": 53,
+    "id": "B-loathing-d2-v2",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-loathing-d2-c2",
+    "word_count": 132,
+    "n_tokens": 145
+  },
+  {
+    "index": 54,
+    "id": "B-loathing-d2-v3",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-loathing-d2-c3",
+    "word_count": 145,
+    "n_tokens": 163
+  },
+  {
+    "index": 55,
+    "id": "B-loathing-d2-v4",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-loathing-d2-c4",
+    "word_count": 123,
+    "n_tokens": 142
+  },
+  {
+    "index": 56,
+    "id": "B-loathing-d3-v1",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-loathing-d3-c1",
+    "word_count": 107,
+    "n_tokens": 121
+  },
+  {
+    "index": 57,
+    "id": "B-loathing-d3-v2",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-loathing-d3-c2",
+    "word_count": 97,
+    "n_tokens": 115
+  },
+  {
+    "index": 58,
+    "id": "B-loathing-d3-v3",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-loathing-d3-c3",
+    "word_count": 102,
+    "n_tokens": 129
+  },
+  {
+    "index": 59,
+    "id": "B-loathing-d3-v4",
+    "emotion": "loathing",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-loathing-d3-c4",
+    "word_count": 111,
+    "n_tokens": 136
+  },
+  {
+    "index": 60,
+    "id": "B-rage-d1-v1",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-rage-d1-c1",
+    "word_count": 82,
+    "n_tokens": 96
+  },
+  {
+    "index": 61,
+    "id": "B-rage-d1-v2",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-rage-d1-c2",
+    "word_count": 94,
+    "n_tokens": 113
+  },
+  {
+    "index": 62,
+    "id": "B-rage-d1-v3",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-rage-d1-c3",
+    "word_count": 94,
+    "n_tokens": 113
+  },
+  {
+    "index": 63,
+    "id": "B-rage-d1-v4",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-rage-d1-c4",
+    "word_count": 95,
+    "n_tokens": 115
+  },
+  {
+    "index": 64,
+    "id": "B-rage-d2-v1",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-rage-d2-c1",
+    "word_count": 91,
+    "n_tokens": 104
+  },
+  {
+    "index": 65,
+    "id": "B-rage-d2-v2",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-rage-d2-c2",
+    "word_count": 99,
+    "n_tokens": 111
+  },
+  {
+    "index": 66,
+    "id": "B-rage-d2-v3",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-rage-d2-c3",
+    "word_count": 97,
+    "n_tokens": 116
+  },
+  {
+    "index": 67,
+    "id": "B-rage-d2-v4",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-rage-d2-c4",
+    "word_count": 90,
+    "n_tokens": 112
+  },
+  {
+    "index": 68,
+    "id": "B-rage-d3-v1",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-rage-d3-c1",
+    "word_count": 100,
+    "n_tokens": 113
+  },
+  {
+    "index": 69,
+    "id": "B-rage-d3-v2",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-rage-d3-c2",
+    "word_count": 86,
+    "n_tokens": 99
+  },
+  {
+    "index": 70,
+    "id": "B-rage-d3-v3",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-rage-d3-c3",
+    "word_count": 97,
+    "n_tokens": 109
+  },
+  {
+    "index": 71,
+    "id": "B-rage-d3-v4",
+    "emotion": "rage",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-rage-d3-c4",
+    "word_count": 108,
+    "n_tokens": 125
+  },
+  {
+    "index": 72,
+    "id": "B-terror-d1-v1",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-terror-d1-c1",
+    "word_count": 95,
+    "n_tokens": 113
+  },
+  {
+    "index": 73,
+    "id": "B-terror-d1-v2",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-terror-d1-c2",
+    "word_count": 103,
+    "n_tokens": 120
+  },
+  {
+    "index": 74,
+    "id": "B-terror-d1-v3",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-terror-d1-c3",
+    "word_count": 100,
+    "n_tokens": 118
+  },
+  {
+    "index": 75,
+    "id": "B-terror-d1-v4",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-terror-d1-c4",
+    "word_count": 102,
+    "n_tokens": 119
+  },
+  {
+    "index": 76,
+    "id": "B-terror-d2-v1",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-terror-d2-c1",
+    "word_count": 111,
+    "n_tokens": 129
+  },
+  {
+    "index": 77,
+    "id": "B-terror-d2-v2",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-terror-d2-c2",
+    "word_count": 115,
+    "n_tokens": 126
+  },
+  {
+    "index": 78,
+    "id": "B-terror-d2-v3",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-terror-d2-c3",
+    "word_count": 119,
+    "n_tokens": 135
+  },
+  {
+    "index": 79,
+    "id": "B-terror-d2-v4",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-terror-d2-c4",
+    "word_count": 115,
+    "n_tokens": 132
+  },
+  {
+    "index": 80,
+    "id": "B-terror-d3-v1",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-terror-d3-c1",
+    "word_count": 121,
+    "n_tokens": 142
+  },
+  {
+    "index": 81,
+    "id": "B-terror-d3-v2",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-terror-d3-c2",
+    "word_count": 102,
+    "n_tokens": 116
+  },
+  {
+    "index": 82,
+    "id": "B-terror-d3-v3",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-terror-d3-c3",
+    "word_count": 107,
+    "n_tokens": 142
+  },
+  {
+    "index": 83,
+    "id": "B-terror-d3-v4",
+    "emotion": "terror",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-terror-d3-c4",
+    "word_count": 106,
+    "n_tokens": 137
+  },
+  {
+    "index": 84,
+    "id": "B-vigilance-d1-v1",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-vigilance-d1-c1",
+    "word_count": 138,
+    "n_tokens": 156
+  },
+  {
+    "index": 85,
+    "id": "B-vigilance-d1-v2",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-vigilance-d1-c2",
+    "word_count": 141,
+    "n_tokens": 157
+  },
+  {
+    "index": 86,
+    "id": "B-vigilance-d1-v3",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-vigilance-d1-c3",
+    "word_count": 127,
+    "n_tokens": 150
+  },
+  {
+    "index": 87,
+    "id": "B-vigilance-d1-v4",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 1,
+    "matched_control_id": "N-vigilance-d1-c4",
+    "word_count": 121,
+    "n_tokens": 139
+  },
+  {
+    "index": 88,
+    "id": "B-vigilance-d2-v1",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-vigilance-d2-c1",
+    "word_count": 140,
+    "n_tokens": 172
+  },
+  {
+    "index": 89,
+    "id": "B-vigilance-d2-v2",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-vigilance-d2-c2",
+    "word_count": 133,
+    "n_tokens": 154
+  },
+  {
+    "index": 90,
+    "id": "B-vigilance-d2-v3",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-vigilance-d2-c3",
+    "word_count": 134,
+    "n_tokens": 149
+  },
+  {
+    "index": 91,
+    "id": "B-vigilance-d2-v4",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 2,
+    "matched_control_id": "N-vigilance-d2-c4",
+    "word_count": 135,
+    "n_tokens": 159
+  },
+  {
+    "index": 92,
+    "id": "B-vigilance-d3-v1",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-vigilance-d3-c1",
+    "word_count": 142,
+    "n_tokens": 176
+  },
+  {
+    "index": 93,
+    "id": "B-vigilance-d3-v2",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-vigilance-d3-c2",
+    "word_count": 134,
+    "n_tokens": 156
+  },
+  {
+    "index": 94,
+    "id": "B-vigilance-d3-v3",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-vigilance-d3-c3",
+    "word_count": 144,
+    "n_tokens": 171
+  },
+  {
+    "index": 95,
+    "id": "B-vigilance-d3-v4",
+    "emotion": "vigilance",
+    "stimulus_set": "B_clinical",
+    "domain": 3,
+    "matched_control_id": "N-vigilance-d3-c4",
+    "word_count": 149,
+    "n_tokens": 168
+  },
+  {
+    "index": 96,
+    "id": "N-admiration-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-admiration-d1-v1",
+    "word_count": 115,
+    "n_tokens": 135
+  },
+  {
+    "index": 97,
+    "id": "N-admiration-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-admiration-d1-v2",
+    "word_count": 109,
+    "n_tokens": 122
+  },
+  {
+    "index": 98,
+    "id": "N-admiration-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-admiration-d1-v3",
+    "word_count": 115,
+    "n_tokens": 133
+  },
+  {
+    "index": 99,
+    "id": "N-admiration-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-admiration-d1-v4",
+    "word_count": 114,
+    "n_tokens": 130
+  },
+  {
+    "index": 100,
+    "id": "N-admiration-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-admiration-d2-v1",
+    "word_count": 112,
+    "n_tokens": 128
+  },
+  {
+    "index": 101,
+    "id": "N-admiration-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-admiration-d2-v2",
+    "word_count": 109,
+    "n_tokens": 129
+  },
+  {
+    "index": 102,
+    "id": "N-admiration-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-admiration-d2-v3",
+    "word_count": 120,
+    "n_tokens": 138
+  },
+  {
+    "index": 103,
+    "id": "N-admiration-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-admiration-d2-v4",
+    "word_count": 119,
+    "n_tokens": 132
+  },
+  {
+    "index": 104,
+    "id": "N-admiration-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-admiration-d3-v1",
+    "word_count": 109,
+    "n_tokens": 128
+  },
+  {
+    "index": 105,
+    "id": "N-admiration-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-admiration-d3-v2",
+    "word_count": 110,
+    "n_tokens": 128
+  },
+  {
+    "index": 106,
+    "id": "N-admiration-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-admiration-d3-v3",
+    "word_count": 126,
+    "n_tokens": 144
+  },
+  {
+    "index": 107,
+    "id": "N-admiration-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-admiration-d3-v4",
+    "word_count": 126,
+    "n_tokens": 141
+  },
+  {
+    "index": 108,
+    "id": "N-amazement-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-amazement-d1-v1",
+    "word_count": 116,
+    "n_tokens": 134
+  },
+  {
+    "index": 109,
+    "id": "N-amazement-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-amazement-d1-v2",
+    "word_count": 119,
+    "n_tokens": 134
+  },
+  {
+    "index": 110,
+    "id": "N-amazement-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-amazement-d1-v3",
+    "word_count": 119,
+    "n_tokens": 138
+  },
+  {
+    "index": 111,
+    "id": "N-amazement-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-amazement-d1-v4",
+    "word_count": 118,
+    "n_tokens": 144
+  },
+  {
+    "index": 112,
+    "id": "N-amazement-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-amazement-d2-v1",
+    "word_count": 115,
+    "n_tokens": 129
+  },
+  {
+    "index": 113,
+    "id": "N-amazement-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-amazement-d2-v2",
+    "word_count": 112,
+    "n_tokens": 130
+  },
+  {
+    "index": 114,
+    "id": "N-amazement-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-amazement-d2-v3",
+    "word_count": 125,
+    "n_tokens": 145
+  },
+  {
+    "index": 115,
+    "id": "N-amazement-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-amazement-d2-v4",
+    "word_count": 126,
+    "n_tokens": 142
+  },
+  {
+    "index": 116,
+    "id": "N-amazement-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-amazement-d3-v1",
+    "word_count": 118,
+    "n_tokens": 134
+  },
+  {
+    "index": 117,
+    "id": "N-amazement-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-amazement-d3-v2",
+    "word_count": 110,
+    "n_tokens": 127
+  },
+  {
+    "index": 118,
+    "id": "N-amazement-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-amazement-d3-v3",
+    "word_count": 117,
+    "n_tokens": 128
+  },
+  {
+    "index": 119,
+    "id": "N-amazement-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-amazement-d3-v4",
+    "word_count": 111,
+    "n_tokens": 126
+  },
+  {
+    "index": 120,
+    "id": "N-ecstasy-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-ecstasy-d1-v1",
+    "word_count": 110,
+    "n_tokens": 130
+  },
+  {
+    "index": 121,
+    "id": "N-ecstasy-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-ecstasy-d1-v2",
+    "word_count": 92,
+    "n_tokens": 104
+  },
+  {
+    "index": 122,
+    "id": "N-ecstasy-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-ecstasy-d1-v3",
+    "word_count": 105,
+    "n_tokens": 126
+  },
+  {
+    "index": 123,
+    "id": "N-ecstasy-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-ecstasy-d1-v4",
+    "word_count": 100,
+    "n_tokens": 115
+  },
+  {
+    "index": 124,
+    "id": "N-ecstasy-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-ecstasy-d2-v1",
+    "word_count": 107,
+    "n_tokens": 122
+  },
+  {
+    "index": 125,
+    "id": "N-ecstasy-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-ecstasy-d2-v2",
+    "word_count": 94,
+    "n_tokens": 111
+  },
+  {
+    "index": 126,
+    "id": "N-ecstasy-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-ecstasy-d2-v3",
+    "word_count": 104,
+    "n_tokens": 119
+  },
+  {
+    "index": 127,
+    "id": "N-ecstasy-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-ecstasy-d2-v4",
+    "word_count": 110,
+    "n_tokens": 123
+  },
+  {
+    "index": 128,
+    "id": "N-ecstasy-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-ecstasy-d3-v1",
+    "word_count": 97,
+    "n_tokens": 112
+  },
+  {
+    "index": 129,
+    "id": "N-ecstasy-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-ecstasy-d3-v2",
+    "word_count": 101,
+    "n_tokens": 113
+  },
+  {
+    "index": 130,
+    "id": "N-ecstasy-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-ecstasy-d3-v3",
+    "word_count": 97,
+    "n_tokens": 111
+  },
+  {
+    "index": 131,
+    "id": "N-ecstasy-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-ecstasy-d3-v4",
+    "word_count": 109,
+    "n_tokens": 126
+  },
+  {
+    "index": 132,
+    "id": "N-grief-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-grief-d1-v1",
+    "word_count": 81,
+    "n_tokens": 99
+  },
+  {
+    "index": 133,
+    "id": "N-grief-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-grief-d1-v2",
+    "word_count": 84,
+    "n_tokens": 93
+  },
+  {
+    "index": 134,
+    "id": "N-grief-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-grief-d1-v3",
+    "word_count": 83,
+    "n_tokens": 99
+  },
+  {
+    "index": 135,
+    "id": "N-grief-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-grief-d1-v4",
+    "word_count": 84,
+    "n_tokens": 98
+  },
+  {
+    "index": 136,
+    "id": "N-grief-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-grief-d2-v1",
+    "word_count": 88,
+    "n_tokens": 108
+  },
+  {
+    "index": 137,
+    "id": "N-grief-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-grief-d2-v2",
+    "word_count": 90,
+    "n_tokens": 114
+  },
+  {
+    "index": 138,
+    "id": "N-grief-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-grief-d2-v3",
+    "word_count": 88,
+    "n_tokens": 97
+  },
+  {
+    "index": 139,
+    "id": "N-grief-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-grief-d2-v4",
+    "word_count": 93,
+    "n_tokens": 106
+  },
+  {
+    "index": 140,
+    "id": "N-grief-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-grief-d3-v1",
+    "word_count": 84,
+    "n_tokens": 101
+  },
+  {
+    "index": 141,
+    "id": "N-grief-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-grief-d3-v2",
+    "word_count": 92,
+    "n_tokens": 108
+  },
+  {
+    "index": 142,
+    "id": "N-grief-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-grief-d3-v3",
+    "word_count": 90,
+    "n_tokens": 101
+  },
+  {
+    "index": 143,
+    "id": "N-grief-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-grief-d3-v4",
+    "word_count": 85,
+    "n_tokens": 100
+  },
+  {
+    "index": 144,
+    "id": "N-loathing-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-loathing-d1-v1",
+    "word_count": 88,
+    "n_tokens": 102
+  },
+  {
+    "index": 145,
+    "id": "N-loathing-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-loathing-d1-v2",
+    "word_count": 91,
+    "n_tokens": 114
+  },
+  {
+    "index": 146,
+    "id": "N-loathing-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-loathing-d1-v3",
+    "word_count": 91,
+    "n_tokens": 109
+  },
+  {
+    "index": 147,
+    "id": "N-loathing-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-loathing-d1-v4",
+    "word_count": 103,
+    "n_tokens": 119
+  },
+  {
+    "index": 148,
+    "id": "N-loathing-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-loathing-d2-v1",
+    "word_count": 98,
+    "n_tokens": 114
+  },
+  {
+    "index": 149,
+    "id": "N-loathing-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-loathing-d2-v2",
+    "word_count": 107,
+    "n_tokens": 122
+  },
+  {
+    "index": 150,
+    "id": "N-loathing-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-loathing-d2-v3",
+    "word_count": 119,
+    "n_tokens": 133
+  },
+  {
+    "index": 151,
+    "id": "N-loathing-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-loathing-d2-v4",
+    "word_count": 103,
+    "n_tokens": 124
+  },
+  {
+    "index": 152,
+    "id": "N-loathing-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-loathing-d3-v1",
+    "word_count": 97,
+    "n_tokens": 112
+  },
+  {
+    "index": 153,
+    "id": "N-loathing-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-loathing-d3-v2",
+    "word_count": 88,
+    "n_tokens": 100
+  },
+  {
+    "index": 154,
+    "id": "N-loathing-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-loathing-d3-v3",
+    "word_count": 96,
+    "n_tokens": 111
+  },
+  {
+    "index": 155,
+    "id": "N-loathing-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-loathing-d3-v4",
+    "word_count": 96,
+    "n_tokens": 112
+  },
+  {
+    "index": 156,
+    "id": "N-rage-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-rage-d1-v1",
+    "word_count": 81,
+    "n_tokens": 95
+  },
+  {
+    "index": 157,
+    "id": "N-rage-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-rage-d1-v2",
+    "word_count": 84,
+    "n_tokens": 99
+  },
+  {
+    "index": 158,
+    "id": "N-rage-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-rage-d1-v3",
+    "word_count": 84,
+    "n_tokens": 101
+  },
+  {
+    "index": 159,
+    "id": "N-rage-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-rage-d1-v4",
+    "word_count": 82,
+    "n_tokens": 96
+  },
+  {
+    "index": 160,
+    "id": "N-rage-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-rage-d2-v1",
+    "word_count": 74,
+    "n_tokens": 84
+  },
+  {
+    "index": 161,
+    "id": "N-rage-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-rage-d2-v2",
+    "word_count": 81,
+    "n_tokens": 92
+  },
+  {
+    "index": 162,
+    "id": "N-rage-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-rage-d2-v3",
+    "word_count": 79,
+    "n_tokens": 98
+  },
+  {
+    "index": 163,
+    "id": "N-rage-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-rage-d2-v4",
+    "word_count": 85,
+    "n_tokens": 94
+  },
+  {
+    "index": 164,
+    "id": "N-rage-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-rage-d3-v1",
+    "word_count": 80,
+    "n_tokens": 93
+  },
+  {
+    "index": 165,
+    "id": "N-rage-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-rage-d3-v2",
+    "word_count": 88,
+    "n_tokens": 100
+  },
+  {
+    "index": 166,
+    "id": "N-rage-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-rage-d3-v3",
+    "word_count": 84,
+    "n_tokens": 96
+  },
+  {
+    "index": 167,
+    "id": "N-rage-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-rage-d3-v4",
+    "word_count": 89,
+    "n_tokens": 100
+  },
+  {
+    "index": 168,
+    "id": "N-terror-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-terror-d1-v1",
+    "word_count": 98,
+    "n_tokens": 116
+  },
+  {
+    "index": 169,
+    "id": "N-terror-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-terror-d1-v2",
+    "word_count": 95,
+    "n_tokens": 111
+  },
+  {
+    "index": 170,
+    "id": "N-terror-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-terror-d1-v3",
+    "word_count": 101,
+    "n_tokens": 117
+  },
+  {
+    "index": 171,
+    "id": "N-terror-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-terror-d1-v4",
+    "word_count": 101,
+    "n_tokens": 117
+  },
+  {
+    "index": 172,
+    "id": "N-terror-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-terror-d2-v1",
+    "word_count": 102,
+    "n_tokens": 117
+  },
+  {
+    "index": 173,
+    "id": "N-terror-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-terror-d2-v2",
+    "word_count": 102,
+    "n_tokens": 118
+  },
+  {
+    "index": 174,
+    "id": "N-terror-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-terror-d2-v3",
+    "word_count": 111,
+    "n_tokens": 127
+  },
+  {
+    "index": 175,
+    "id": "N-terror-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-terror-d2-v4",
+    "word_count": 105,
+    "n_tokens": 118
+  },
+  {
+    "index": 176,
+    "id": "N-terror-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-terror-d3-v1",
+    "word_count": 106,
+    "n_tokens": 119
+  },
+  {
+    "index": 177,
+    "id": "N-terror-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-terror-d3-v2",
+    "word_count": 96,
+    "n_tokens": 113
+  },
+  {
+    "index": 178,
+    "id": "N-terror-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-terror-d3-v3",
+    "word_count": 104,
+    "n_tokens": 137
+  },
+  {
+    "index": 179,
+    "id": "N-terror-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-terror-d3-v4",
+    "word_count": 102,
+    "n_tokens": 126
+  },
+  {
+    "index": 180,
+    "id": "N-vigilance-d1-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-vigilance-d1-v1",
+    "word_count": 123,
+    "n_tokens": 137
+  },
+  {
+    "index": 181,
+    "id": "N-vigilance-d1-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-vigilance-d1-v2",
+    "word_count": 118,
+    "n_tokens": 132
+  },
+  {
+    "index": 182,
+    "id": "N-vigilance-d1-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-vigilance-d1-v3",
+    "word_count": 107,
+    "n_tokens": 129
+  },
+  {
+    "index": 183,
+    "id": "N-vigilance-d1-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 1,
+    "matched_control_id": "B-vigilance-d1-v4",
+    "word_count": 119,
+    "n_tokens": 141
+  },
+  {
+    "index": 184,
+    "id": "N-vigilance-d2-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-vigilance-d2-v1",
+    "word_count": 108,
+    "n_tokens": 137
+  },
+  {
+    "index": 185,
+    "id": "N-vigilance-d2-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-vigilance-d2-v2",
+    "word_count": 116,
+    "n_tokens": 132
+  },
+  {
+    "index": 186,
+    "id": "N-vigilance-d2-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-vigilance-d2-v3",
+    "word_count": 113,
+    "n_tokens": 129
+  },
+  {
+    "index": 187,
+    "id": "N-vigilance-d2-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 2,
+    "matched_control_id": "B-vigilance-d2-v4",
+    "word_count": 115,
+    "n_tokens": 132
+  },
+  {
+    "index": 188,
+    "id": "N-vigilance-d3-c1",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-vigilance-d3-v1",
+    "word_count": 128,
+    "n_tokens": 148
+  },
+  {
+    "index": 189,
+    "id": "N-vigilance-d3-c2",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-vigilance-d3-v2",
+    "word_count": 117,
+    "n_tokens": 136
+  },
+  {
+    "index": 190,
+    "id": "N-vigilance-d3-c3",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-vigilance-d3-v3",
+    "word_count": 125,
+    "n_tokens": 145
+  },
+  {
+    "index": 191,
+    "id": "N-vigilance-d3-c4",
+    "emotion": "neutral",
+    "stimulus_set": "neutral",
+    "domain": 3,
+    "matched_control_id": "B-vigilance-d3-v4",
+    "word_count": 115,
+    "n_tokens": 135
+  }
+]

@@ -1,0 +1,5 @@
+model,phase0_norm_peak,setc_best_layer,setc_n_layers,setc_norm_peak,setc_best_auroc,in_mid_zone
+Llama-3.2-1B,0.875,14,16,0.9333,0.9973,false
+Llama-3-8B (base),0.781,30,32,0.9677,0.9929,false
+Llama-3-8B (instruct),0.938,25,32,0.8065,0.9991,false
+Gemma-2-9B,0.929,33,42,0.8049,1.0,false

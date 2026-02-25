@@ -17,6 +17,7 @@ venv/
 *.pt
 *.bin
 *.npy
+*.npz
 *.safetensors
 
 # But track result summaries

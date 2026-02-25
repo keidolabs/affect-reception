@@ -1,0 +1,14 @@
+Smoke Test Report — google/gemma-2-9b
+==========================================
+Date: 2026-02-24 | Device: mps | Dtype: float16
+Framework: HF transformers (register_forward_hook, NOT TransformerLens)
+Status: PASS
+
+Architecture:
+  n_layers: 42  d_model: 3584  n_heads: 16  d_head: 256
+  Attention: alternating local (even layers) / global (odd layers)
+
+Hook test (layer 20, final token):
+  shape: (3584,)  mean: -0.1218  std: 4.4277
+
+Gate: PASS — proceed to extract.py

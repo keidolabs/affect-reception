@@ -1,0 +1,13 @@
+Smoke Test Report — meta-llama/Meta-Llama-3-8B
+==========================================
+Date: 2026-02-24 | Device: mps | Dtype: float16
+Framework: HF transformers (register_forward_hook, NOT TransformerLens)
+Status: PASS
+
+Architecture:
+  n_layers: 32  d_model: 4096  n_heads: 32  d_head: 128
+
+Hook test (layer 15, final token):
+  shape: (4096,)  mean: 0.0003  std: 0.1412
+
+Gate: PASS — proceed to extract.py

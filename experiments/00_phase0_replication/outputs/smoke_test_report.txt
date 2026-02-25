@@ -1,0 +1,27 @@
+Smoke Test Report — meta-llama/Llama-3.2-1B
+==========================================
+
+Date: 2026-02-24
+Device: cpu
+Status: PASS
+
+Model Architecture:
+  n_layers: 16 (expected 16)
+  d_model:  2048 (expected 2048)
+  n_heads:  32 (expected 32)
+  d_head:   64 (expected 64)
+
+Cache Verification:
+  resid_post at all 16 layers: shape (1, seq_len, 2048) — PASS
+  attention patterns: shape (1, n_heads, seq_len, seq_len) — PASS
+  mlp_out: shape (1, seq_len, 2048) — PASS
+
+Test Forward Pass:
+  Text: 'The kitchen counter still had the grocery list in his handwriting.'
+  Tokens: 13
+  Logits shape: torch.Size([1, 13, 128256])
+
+CRITICAL: Device is CPU — MPS never used.
+(MPS produces silently incorrect results with TransformerLens — see GitHub issue #1178)
+
+Gate: PASS — proceed to activation extraction
