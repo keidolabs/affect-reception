@@ -1,0 +1,11 @@
+layer,norm_depth,act_type,knockout_type,stimulus_set,accuracy_drop,n_changed,n_total,is_critical,model_key
+31,1.0,a,random,setb,0.3333333333333333,32,96,true,llama8b_base
+31,1.0,m,zero,seta,0.4875,39,80,true,llama8b_base
+29,0.9375,m,zero,setb,0.21875,21,96,true,llama8b_base
+31,1.0,m,zero,setb,0.6875,66,96,true,llama8b_base
+31,1.0,m,random,seta,0.75,60,80,true,llama8b_base
+17,0.5625,m,random,setb,0.22916666666666666,22,96,true,llama8b_base
+21,0.6875,m,random,setb,0.20833333333333334,20,96,true,llama8b_base
+29,0.9375,m,random,setb,0.22916666666666666,22,96,true,llama8b_base
+30,0.9688,m,random,setb,0.3229166666666667,31,96,true,llama8b_base
+31,1.0,m,random,setb,0.9375,90,96,true,llama8b_base

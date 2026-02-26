@@ -1,0 +1,40 @@
+v2 Set A Behavioral Check — meta-llama/Llama-3.2-1B-Instruct
+============================================================
+
+Prompt format: Tak et al. few-shot (2-shot classification)
+Extraction point: ':' (final token of 'Answer:')
+Pass criterion: ≥5/8 emotions have plausible token in top-10
+
+[PASS] admiration
+  Top-10: [' happiness', ' love', ' joy', ' gratitude', ' relief', ' excitement', ' trust', ' content', ' surprise', ' affection']
+  Expected any of: [' admiration', ' respect', ' awe', ' pride', ' love']
+
+[PASS] amazement
+  Top-10: [' surprise', ' joy', ' happiness', ' excitement', ' delight', ' shock', ' am', ' gratitude', ' surprised', ' wonder']
+  Expected any of: [' surprise', ' wonder', ' amazement', ' shock', ' awe']
+
+[PASS] ecstasy
+  Top-10: [' joy', ' happiness', ' pride', ' el', ' relief', ' satisfaction', ' excitement', ' pleasure', ' delight', ' sadness']
+  Expected any of: [' joy', ' happiness', ' euphoria', ' ecstasy', ' elation']
+
+[PASS] grief
+  Top-10: [' sadness', ' sorrow', ' grief', ' sad', ' melanch', ' despair', ' depression', ' regret', ' distress', ' anger']
+  Expected any of: [' sadness', ' grief', ' sorrow', ' loss', ' depression']
+
+[PASS] loathing
+  Top-10: [' disgust', ' anger', ' rev', ' nausea', ' disgusted', ' horror', ' outrage', ' shock', ' disgusting', ' contempt']
+  Expected any of: [' disgust', ' loathing', ' contempt', ' hatred', ' repulsion']
+
+[PASS] rage
+  Top-10: [' anger', ' frustration', ' resentment', ' sadness', ' irritation', ' happiness', ' jealousy', ' anxiety', ' rage', ' disappointment']
+  Expected any of: [' anger', ' rage', ' fury', ' frustration', ' resentment']
+
+[PASS] terror
+  Top-10: [' fear', ' anxiety', ' anger', ' shock', ' panic', ' horror', ' sadness', ' terror', ' distress', ' surprise']
+  Expected any of: [' fear', ' terror', ' panic', ' anxiety', ' dread']
+
+[PASS] vigilance
+  Top-10: [' fear', ' anxiety', ' alarm', ' appreh', ' nervous', ' worry', ' paranoia', ' alert', ' panic', ' tension']
+  Expected any of: [' anxiety', ' vigilance', ' alertness', ' anticipation', ' worry']
+
+Result: 8/8 passed → Behavioral gate: PASS

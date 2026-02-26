@@ -1,0 +1,31 @@
+v2 Set B Clinical Behavioral Check — meta-llama/Llama-3.2-1B-Instruct
+============================================================
+
+Note: For Set B, model may predict diverse emotion-adjacent terms.
+Low accuracy is expected — Set B tests generalization, not in-distribution perf.
+
+[PASS] admiration
+  Top-5: [' pride', ' curiosity', ' satisfaction', ' appreciation', ' admiration']
+
+[PASS] amazement
+  Top-5: [' awe', ' wonder', ' fear', ' confusion', ' surprise']
+
+[FAIL] ecstasy
+  Top-5: [' grief', ' sadness', ' shock', ' confusion', ' sorrow']
+
+[PASS] grief
+  Top-5: [' nostalgia', ' grief', ' sadness', ' melanch', ' sorrow']
+
+[FAIL] loathing
+  Top-5: [' satisfaction', ' gratitude', ' none', ' greed', ' guilt']
+
+[PASS] rage
+  Top-5: [' anger', ' guilt', ' regret', ' sadness', ' grief']
+
+[PASS] terror
+  Top-5: [' surprise', ' fear', ' curiosity', ' anxiety', ' confusion']
+
+[FAIL] vigilance
+  Top-5: [' surprise', ' joy', ' relief', ' happiness', ' curiosity']
+
+Result: 5/8 clinical emotions triggered correct top-5
