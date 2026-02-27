@@ -59,7 +59,7 @@ MODEL_KEY = sys.argv[1] if len(sys.argv) > 1 else "llama1b_inst"
 assert MODEL_KEY in MODEL_CONFIGS, f"Unknown MODEL_KEY: {MODEL_KEY}. Options: {list(MODEL_CONFIGS)}"
 MODEL_ID  = MODEL_CONFIGS[MODEL_KEY]["id"]
 N_LAYERS  = MODEL_CONFIGS[MODEL_KEY]["n_layers"]
-DEVICE    = "mps"
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
 
 SETA_DIR  = ROOT / "experiments" / "11_v2_extract_seta" / "outputs" / "activations" / MODEL_KEY
 SETB_DIR  = ROOT / "experiments" / "12_v2_extract_setb" / "outputs" / "activations" / MODEL_KEY

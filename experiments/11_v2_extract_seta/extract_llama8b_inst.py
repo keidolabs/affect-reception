@@ -31,7 +31,7 @@ sys.path.insert(0, str(ROOT))
 
 MODEL_KEY = "llama8b_inst"
 MODEL_ID  = "meta-llama/Meta-Llama-3-8B-Instruct"
-DEVICE    = "mps"
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
 DTYPE     = torch.float16
 
 SHOT_1_TEXT = "My dog died last week. I miss him every day."
@@ -90,11 +90,12 @@ for prompt_text, acceptable in [
         out = model(**inputs, use_cache=False)
     top5 = [tokenizer.decode([tid]) for tid in out.logits[0, -1, :].topk(5).indices.tolist()]
     found = any(tok in top5 for tok in acceptable)
-    console.print(f"  {'✓' if found else '✗'} MPS validation: '{prompt_text[:40]}' → {top5[:3]}")
+    console.print(f"  {'✓' if found else '✗'} device validation: '{prompt_text[:40]}' → {top5[:3]}")
     if not found:
-        raise RuntimeError("MPS validation FAILED")
-    torch.mps.empty_cache()
-console.print("[bold green]✓ MPS validation passed[/bold green]")
+        raise RuntimeError("device validation FAILED")
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+console.print("[bold green]✓ device validation passed[/bold green]")
 
 layer_h, layer_a, layer_m = {}, {}, {}
 def make_h_hook(l):
@@ -146,7 +147,10 @@ for stimulus in track(set_a_emotional, description="Extracting..."):
                         m=m_all.astype(np.float32), attn=attn_all.astype(np.float32),
                         metadata=json.dumps(meta))
     manifest_rows.append(meta)
-    del outputs; torch.mps.empty_cache(); gc.collect()
+    del outputs
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+    gc.collect()
 
 for h in handles: h.remove()
 elapsed = time.time() - t_start

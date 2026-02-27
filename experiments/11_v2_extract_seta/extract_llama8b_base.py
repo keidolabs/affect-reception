@@ -35,7 +35,7 @@ sys.path.insert(0, str(ROOT))
 
 MODEL_KEY = "llama8b_base"
 MODEL_ID  = "meta-llama/Meta-Llama-3-8B"
-DEVICE    = "mps"
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
 DTYPE     = torch.float16
 
 SHOT_1_TEXT    = "My dog died last week. I miss him every day."
@@ -96,7 +96,7 @@ if ":" not in final_tok:
 # MPS VALIDATION
 # ============================================================================
 
-console.print("\n[bold yellow]MPS validation...[/bold yellow]")
+console.print("\n[bold yellow]Device validation...[/bold yellow]")
 validation_prompts = [
     ("The Eiffel Tower is located in the city of", ["Paris", " Paris"]),
     ("The boiling point of water is 100 degrees", ["Celsius", " Celsius", "C", " C"]),
@@ -110,9 +110,10 @@ for prompt_text, acceptable in validation_prompts:
     status = "✓" if found else "✗"
     console.print(f"  {status} '{prompt_text[:50]}' → top-3: {top5[:3]}")
     if not found:
-        raise RuntimeError(f"MPS validation FAILED — do not trust activations")
-    torch.mps.empty_cache()
-console.print("[bold green]✓ MPS validation passed[/bold green]")
+        raise RuntimeError(f"device validation FAILED — do not trust activations")
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+console.print("[bold green]✓ device validation passed[/bold green]")
 
 # ============================================================================
 # HOOK SETUP — h, a, m (register once, extract per-stimulus)
@@ -190,7 +191,10 @@ for stimulus in track(set_a_emotional, description="Extracting..."):
                         m=m_all.astype(np.float32), attn=attn_all.astype(np.float32),
                         metadata=json.dumps(meta))
     manifest_rows.append(meta)
-    del outputs; torch.mps.empty_cache(); gc.collect()
+    del outputs
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+    gc.collect()
 
 for h in handles:
     h.remove()

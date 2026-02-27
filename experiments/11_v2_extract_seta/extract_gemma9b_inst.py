@@ -31,7 +31,7 @@ sys.path.insert(0, str(ROOT))
 
 MODEL_KEY = "gemma9b_inst"
 MODEL_ID  = "google/gemma-2-9b-it"
-DEVICE    = "mps"
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
 DTYPE     = torch.float16
 
 SHOT_1_TEXT = "My dog died last week. I miss him every day."
@@ -86,9 +86,10 @@ for prompt_text, acceptable in [("The Eiffel Tower is located in", ["Paris", " P
         out = model(**inputs, use_cache=False)
     top5 = [tokenizer.decode([tid]) for tid in out.logits[0, -1, :].topk(5).indices.tolist()]
     found = any(tok in top5 for tok in acceptable)
-    console.print(f"  {'✓' if found else '✗'} MPS: {top5[:3]}")
-    if not found: raise RuntimeError("MPS validation FAILED")
-    torch.mps.empty_cache()
+    console.print(f"  {'✓' if found else '✗'} device: {top5[:3]}")
+    if not found: raise RuntimeError("device validation FAILED")
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
 
 layer_h, layer_a, layer_m = {}, {}, {}
 def make_h_hook(l):
@@ -126,7 +127,9 @@ for stimulus in track(set_a_emotional, description="Extracting..."):
             attn_all = np.stack([outputs.attentions[l][0, :, colon_pos, :].cpu().to(torch.float32).numpy()
                                   for l in range(n_layers)])
         except RuntimeError:
-            torch.mps.empty_cache(); gc.collect()
+            if DEVICE == "mps": torch.mps.empty_cache()
+            elif DEVICE == "cuda": torch.cuda.empty_cache()
+            gc.collect()
             outputs = model(**inputs, use_cache=False)
             attn_all = np.zeros((n_layers, n_heads, n_tokens), dtype=np.float32)
             console.print(f"[yellow]  OOM attn {stimulus.id} — zeros[/yellow]")
@@ -147,7 +150,10 @@ for stimulus in track(set_a_emotional, description="Extracting..."):
                         m=m_all.astype(np.float32), attn=attn_all.astype(np.float32),
                         metadata=json.dumps(meta))
     manifest_rows.append(meta)
-    del outputs; torch.mps.empty_cache(); gc.collect()
+    del outputs
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+    gc.collect()
 
 for h in handles: h.remove()
 elapsed = time.time() - t_start

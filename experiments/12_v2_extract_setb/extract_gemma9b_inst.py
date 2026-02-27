@@ -21,7 +21,8 @@ ACT_DIR.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(ROOT))
 
 MODEL_KEY = "gemma9b_inst"; MODEL_ID = "google/gemma-2-9b-it"
-DEVICE = "mps"; DTYPE = torch.float16
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
+DTYPE     = torch.float16
 
 SHOT_1_TEXT = "My dog died last week. I miss him every day."
 SHOT_2_TEXT = "I got promoted and my boss praised my work in front of everyone."
@@ -58,9 +59,10 @@ for p, acc in [("The capital of France is", ["Paris", " Paris"])]:
     inp = tokenizer(p, return_tensors="pt").to(DEVICE)
     with torch.no_grad(): out = model(**inp, use_cache=False)
     top3 = [tokenizer.decode([tid]) for tid in out.logits[0, -1, :].topk(3).indices.tolist()]
-    if not any(t in top3 for t in acc): raise RuntimeError("MPS FAILED")
-    torch.mps.empty_cache()
-console.print("[bold green]✓ MPS OK[/bold green]")
+    if not any(t in top3 for t in acc): raise RuntimeError("device validation FAILED")
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+console.print("[bold green]✓ device OK[/bold green]")
 
 layer_h, layer_a, layer_m = {}, {}, {}
 def make_h_hook(l):
@@ -96,7 +98,9 @@ for stimulus in track(all_stimuli, description="Extracting Set B..."):
             outputs = model(**inputs, use_cache=False, output_attentions=True)
             attn_all = np.stack([outputs.attentions[l][0, :, colon_pos, :].cpu().to(torch.float32).numpy() for l in range(n_layers)])
         except RuntimeError:
-            torch.mps.empty_cache(); gc.collect()
+            if DEVICE == "mps": torch.mps.empty_cache()
+            elif DEVICE == "cuda": torch.cuda.empty_cache()
+            gc.collect()
             outputs = model(**inputs, use_cache=False)
             attn_all = np.zeros((n_layers, n_heads, n_tokens), dtype=np.float32)
 
@@ -117,7 +121,10 @@ for stimulus in track(all_stimuli, description="Extracting Set B..."):
                         m=m_all.astype(np.float32), attn=attn_all.astype(np.float32),
                         metadata=json.dumps(meta))
     manifest_rows.append(meta)
-    del outputs; torch.mps.empty_cache(); gc.collect()
+    del outputs
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+    gc.collect()
 
 for h in handles: h.remove()
 console.print(f"\n[bold green]✓ Done in {time.time()-t_start:.1f}s[/bold green]")

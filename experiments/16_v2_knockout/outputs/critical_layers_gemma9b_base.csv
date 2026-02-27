@@ -1,0 +1,5 @@
+layer,norm_depth,act_type,knockout_type,stimulus_set,accuracy_drop,n_changed,n_total,is_critical,model_key
+30,0.7381,m,zero,setb,0.22916666666666666,22,96,true,gemma9b_base
+36,0.881,m,zero,setb,0.21875,21,96,true,gemma9b_base
+28,0.6905,m,random,setb,0.21875,21,96,true,gemma9b_base
+30,0.7381,m,random,setb,0.23958333333333334,23,96,true,gemma9b_base

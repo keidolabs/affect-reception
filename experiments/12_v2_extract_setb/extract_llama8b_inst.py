@@ -21,7 +21,8 @@ ACT_DIR.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(ROOT))
 
 MODEL_KEY = "llama8b_inst"; MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
-DEVICE = "mps"; DTYPE = torch.float16
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
+DTYPE     = torch.float16
 
 SHOT_1_TEXT = "My dog died last week. I miss him every day."
 SHOT_2_TEXT = "I got promoted and my boss praised my work in front of everyone."
@@ -58,9 +59,10 @@ for p, acc in [("The capital of France is", ["Paris", " Paris"])]:
     inp = tokenizer(p, return_tensors="pt").to(DEVICE)
     with torch.no_grad(): out = model(**inp, use_cache=False)
     top3 = [tokenizer.decode([tid]) for tid in out.logits[0, -1, :].topk(3).indices.tolist()]
-    if not any(t in top3 for t in acc): raise RuntimeError("MPS validation FAILED")
-    torch.mps.empty_cache()
-console.print("[bold green]✓ MPS OK[/bold green]")
+    if not any(t in top3 for t in acc): raise RuntimeError("device validation FAILED")
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+console.print("[bold green]✓ device OK[/bold green]")
 
 layer_h, layer_a, layer_m = {}, {}, {}
 def make_h_hook(l):
@@ -112,7 +114,10 @@ for stimulus in track(all_stimuli, description="Extracting Set B..."):
                         m=m_all.astype(np.float32), attn=attn_all.astype(np.float32),
                         metadata=json.dumps(meta))
     manifest_rows.append(meta)
-    del outputs; torch.mps.empty_cache(); gc.collect()
+    del outputs
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+    gc.collect()
 
 for h in handles: h.remove()
 elapsed = time.time() - t_start

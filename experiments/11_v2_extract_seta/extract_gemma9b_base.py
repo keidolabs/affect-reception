@@ -36,7 +36,7 @@ sys.path.insert(0, str(ROOT))
 
 MODEL_KEY = "gemma9b_base"
 MODEL_ID  = "google/gemma-2-9b"
-DEVICE    = "mps"
+DEVICE    = os.getenv("EMO_DEVICE", "cuda" if torch.cuda.is_available() else "mps")
 DTYPE     = torch.float16
 
 SHOT_1_TEXT = "My dog died last week. I miss him every day."
@@ -89,7 +89,7 @@ console.print(f"Final token: {repr(final_tok)} — {'✓' if ':' in final_tok el
 if ":" not in final_tok:
     raise ValueError(f"Final token mismatch: {repr(final_tok)}")
 
-# MPS validation
+# Device validation
 for prompt_text, acceptable in [
     ("The Eiffel Tower is located in the city of", ["Paris", " Paris"]),
     ("The boiling point of water is 100 degrees", ["Celsius", " Celsius"]),
@@ -99,10 +99,11 @@ for prompt_text, acceptable in [
         out = model(**inputs, use_cache=False)
     top5 = [tokenizer.decode([tid]) for tid in out.logits[0, -1, :].topk(5).indices.tolist()]
     found = any(tok in top5 for tok in acceptable)
-    console.print(f"  {'✓' if found else '✗'} MPS: '{prompt_text[:40]}' → {top5[:3]}")
-    if not found: console.print("[yellow]  ⚠ MPS validation: expected token not in top-5 (base model may complete differently — continuing)[/yellow]")
-    torch.mps.empty_cache()
-console.print("[bold green]✓ MPS validation passed[/bold green]")
+    console.print(f"  {'✓' if found else '✗'} device: '{prompt_text[:40]}' → {top5[:3]}")
+    if not found: console.print("[yellow]  ⚠ device validation: expected token not in top-5 (base model may complete differently — continuing)[/yellow]")
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+console.print("[bold green]✓ device validation passed[/bold green]")
 
 layer_h, layer_a, layer_m = {}, {}, {}
 def make_h_hook(l):
@@ -146,7 +147,9 @@ for stimulus in track(set_a_emotional, description="Extracting..."):
         except RuntimeError as e:
             if "out of memory" in str(e).lower() or "mps" in str(e).lower():
                 console.print(f"[yellow]  OOM on attention for {stimulus.id} — saving zeros[/yellow]")
-                torch.mps.empty_cache(); gc.collect()
+                if DEVICE == "mps": torch.mps.empty_cache()
+                elif DEVICE == "cuda": torch.cuda.empty_cache()
+                gc.collect()
                 outputs = model(**inputs, use_cache=False)
                 attn_all = np.zeros((n_layers, n_heads, n_tokens), dtype=np.float32)
             else:
@@ -168,7 +171,10 @@ for stimulus in track(set_a_emotional, description="Extracting..."):
                         m=m_all.astype(np.float32), attn=attn_all.astype(np.float32),
                         metadata=json.dumps(meta))
     manifest_rows.append(meta)
-    del outputs; torch.mps.empty_cache(); gc.collect()
+    del outputs
+    if DEVICE == "mps": torch.mps.empty_cache()
+    elif DEVICE == "cuda": torch.cuda.empty_cache()
+    gc.collect()
 
 for h in handles: h.remove()
 elapsed = time.time() - t_start
