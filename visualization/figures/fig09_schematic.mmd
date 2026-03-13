@@ -1,0 +1,87 @@
+%%{init: {
+  "theme": "base",
+  "flowchart": {"curve": "linear"},
+  "themeVariables": {
+    "fontFamily": "Helvetica, Arial, sans-serif",
+    "fontSize": "15px",
+    "primaryColor": "#e8e8e8",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#888888",
+    "lineColor": "#555555",
+    "background": "#ffffff"
+  }
+}}%%
+
+flowchart TD
+    A["`**Set A — Keyword-rich**
+*'I was devastated when he left.'*
+explicit emotion words
+90 stimuli · 8 emotions`"]
+
+    B["`**Set B — Keyword-free**
+*'The kitchen table sits empty now.'*
+no explicit emotion words
+96 vignettes · 8 domains`"]
+
+    LLM["`**LLM**
+6 models tested
+Llama-1B · 8B · Gemma-9B
+base + instruct variants`"]
+
+    P["`**Linear Probing**
+Encoding
+*AUROC*`"]
+
+    AP["`**Activation Patching**
+Causality
+*transfer rate*`"]
+
+    LK["`**Layer Knockout**
+Necessity
+*critical layers*`"]
+
+    GA["`**Geometry Analysis**
+Structure
+*silhouette · PCA*`"]
+
+    DISC["`*Two discovered mechanisms*`"]
+
+    AR["`**Affect Reception**
+binary · early layers · universal`"]
+
+    EC["`**Emotion Categorisation**
+8-class · late layers
+scale-sensitive`"]
+
+    A --> LLM
+    B --> LLM
+    LLM --> P
+    LLM --> AP
+    LLM --> LK
+    LLM --> GA
+    P --> DISC
+    AP --> DISC
+    LK --> DISC
+    GA --> DISC
+    DISC --> AR
+    DISC --> EC
+
+    classDef setA fill:#cce0f5,stroke:#0072B2,stroke-width:2px,color:#000000
+    classDef setB fill:#f5ddd0,stroke:#D55E00,stroke-width:2px,color:#000000
+    classDef model fill:#e0e0e0,stroke:#444444,stroke-width:2px,color:#000000
+    classDef probe fill:#d4ede5,stroke:#009E73,stroke-width:1.5px,color:#000000
+    classDef interv fill:#fdf0cc,stroke:#E69F00,stroke-width:1.5px,color:#000000
+    classDef geom fill:#f0dff0,stroke:#CC79A7,stroke-width:1.5px,color:#000000
+    classDef disc fill:#ffffff,stroke:#E69F00,stroke-width:1px,color:#E69F00
+    classDef mech fill:#fffde0,stroke:#E69F00,stroke-width:2px,color:#000000
+
+    class A setA
+    class B setB
+    class LLM model
+    class P probe
+    class AP interv
+    class LK interv
+    class GA geom
+    class DISC disc
+    class AR mech
+    class EC mech

@@ -110,7 +110,7 @@ for model_cfg in MODELS:
     p_df = safe_read_csv(PATCHING_DIR / f"patching_success_by_layer_{mk}_seta_h.csv")
     if p_df is not None and len(p_df) > 0:
         peak_row = p_df.filter(pl.col("success_rate") == p_df["success_rate"].max())
-        row["patching_seta_peak_layer"]   = int(peak_row["layer_start"][0])
+        row["patching_seta_peak_layer"]   = int(peak_row["layer"][0])
         row["patching_seta_peak_success"] = float(peak_row["success_rate"][0])
     else:
         row["patching_seta_peak_layer"] = row["patching_seta_peak_success"] = None

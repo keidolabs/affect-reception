@@ -1,7 +1,7 @@
 # Experiment 16 — v2 Knockout Experiments
 
 **Date:** 2026-02-25
-**Model:** gemma9b_base (Llama-3.2-1B-Instruct, HF on MPS)
+**Model:** gemma9b_inst (Llama-3.2-1B-Instruct, HF on MPS)
 **Threshold for "critical layer":** ≥20% accuracy drop
 
 ## Research Question
@@ -27,6 +27,6 @@ indicate circuits that are causally shared across stimulus types.
 
 ## Outputs
 
-- `outputs/knockout_summary_gemma9b_base.csv` — per-layer accuracy drops
-- `outputs/critical_layers_gemma9b_base.csv` — critical layers per configuration
-- `outputs/knockout_curves_gemma9b_base.png/.svg` — visualization
+- `outputs/knockout_summary_gemma9b_inst.csv` — per-layer accuracy drops
+- `outputs/critical_layers_gemma9b_inst.csv` — critical layers per configuration
+- `outputs/knockout_curves_gemma9b_inst.png/.svg` — visualization

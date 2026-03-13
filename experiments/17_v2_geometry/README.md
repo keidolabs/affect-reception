@@ -1,8 +1,8 @@
 # Experiment 17 — v2 Representational Geometry
 
 **Date:** 2026-02-25
-**Model:** llama1b_inst (Llama-3.2-1B-Instruct)
-**Peak layer:** L11 (from Exp 13 probe results)
+**Model:** gemma9b_inst (Llama-3.2-1B-Instruct)
+**Peak layer:** L21 (from Exp 13 probe results)
 
 ## Research Questions
 
@@ -14,12 +14,12 @@
 
 | Metric | Value |
 |--------|-------|
-| Silhouette by emotion | 0.0397 |
-| Silhouette by set | 0.1290 |
+| Silhouette by emotion | 0.0383 |
+| Silhouette by set | 0.1330 |
 | Emotion > set structure | ✗ |
-| Within-emo cross-set cosine similarity | 0.9402 |
-| Cross-emotion cosine similarity | 0.9378 |
-| Emotions dominating topic (Set B) | 5/8 |
+| Within-emo cross-set cosine similarity | 0.9558 |
+| Cross-emotion cosine similarity | 0.9581 |
+| Emotions dominating topic (Set B) | 6/8 |
 
 ## Methodology
 
@@ -31,8 +31,8 @@
 
 ## Outputs
 
-- `outputs/pca_joint_llama1b_inst.png/.svg` — joint PCA visualization
-- `outputs/cosine_similarity_matrix_llama1b_inst.png/.svg` — centroid similarity heatmap
-- `outputs/cross_topic_clustering_llama1b_inst.png/.svg` — emotion vs topic comparison
-- `outputs/silhouette_scores_llama1b_inst.csv` — silhouette and cosine metrics
-- `outputs/permutation_test_llama1b_inst.csv` — permutation test results
+- `outputs/pca_joint_gemma9b_inst.png/.svg` — joint PCA visualization
+- `outputs/cosine_similarity_matrix_gemma9b_inst.png/.svg` — centroid similarity heatmap
+- `outputs/cross_topic_clustering_gemma9b_inst.png/.svg` — emotion vs topic comparison
+- `outputs/silhouette_scores_gemma9b_inst.csv` — silhouette and cosine metrics
+- `outputs/permutation_test_gemma9b_inst.csv` — permutation test results

@@ -1,0 +1,5 @@
+model_key,layer,grouping,silhouette
+gemma9b_inst,21,emotion,0.03834078088402748
+gemma9b_inst,21,set,0.1330171674489975
+gemma9b_inst,21,within_emo_cross_set_cosine,0.9558092281222343
+gemma9b_inst,21,cross_emo_cosine,0.9580859329019275

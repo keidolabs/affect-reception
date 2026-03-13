@@ -1,0 +1,5 @@
+model_key,layer,grouping,silhouette
+llama8b_inst,31,emotion,0.0907503142952919
+llama8b_inst,31,set,0.06629536300897598
+llama8b_inst,31,within_emo_cross_set_cosine,0.8866660445928574
+llama8b_inst,31,cross_emo_cosine,0.7797079629131726
