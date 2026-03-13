@@ -189,7 +189,6 @@ emotion-circuits/
 │   └── figures/                # 13 arXiv-ready figures + style config
 ├── analysis/                   # Cross-experiment statistical utilities
 ├── validation/                 # Stimulus validation scripts
-├── lab-journal/                # Chronological research notes (open science)
 ├── docs/                       # Cloud GPU setup guide
 ├── scripts/                    # Cloud sync helpers (Vast.ai)
 ├── Makefile                    # Cloud GPU orchestration targets

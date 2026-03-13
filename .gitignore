@@ -44,6 +44,8 @@ results/
 # === INTERNAL PROJECT MANAGEMENT ===
 # PRPs/ — pre-run procedures / internal planning docs
 PRPs/
+# lab-journal/ — private research notes, kept local only
+lab-journal/
 
 # === OS ===
 .DS_Store
