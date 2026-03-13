@@ -39,7 +39,7 @@ runs.log
 results/
 
 # === CLAUDE CODE ===
-.claude/settings.local.json
+.claude/
 
 # === INTERNAL PROJECT MANAGEMENT ===
 # PRPs/ — pre-run procedures / internal planning docs
