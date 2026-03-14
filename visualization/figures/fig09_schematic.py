@@ -103,26 +103,61 @@ if result.returncode != 0:
 console.print(f"  Saved: {SVG_OUT.name}")
 
 # ============================================================================
-# RENDER PDF
+# RENDER PDF (from PNG via matplotlib for tight bounding box)
 # ============================================================================
 
-console.print("[bold cyan]Rendering PDF...[/bold cyan]")
-result = subprocess.run(
-    [
-        mmdc,
-        "--input",           str(MMD_FILE),
-        "--output",          str(PDF_OUT),
-        "--configFile",      str(CONFIG_FILE),
-        "--backgroundColor", "white",
-        "--width",           "1400",
-    ],
-    capture_output=True,
-    text=True,
-)
-if result.returncode != 0:
-    console.print(f"[bold red]mmdc PDF error:[/bold red]\n{result.stderr}")
-    sys.exit(1)
-console.print(f"  Saved: {PDF_OUT.name}")
+console.print("[bold cyan]Rendering PDF (tight crop from PNG)...[/bold cyan]")
+try:
+    from PIL import Image
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    img = Image.open(PNG_OUT).convert("RGB")
+    # Auto-crop whitespace: find bounding box of non-white content
+    import numpy as np
+    arr = np.array(img)
+    non_white = np.any(arr < 245, axis=2)  # pixel is non-white if any channel < 245
+    rows = np.any(non_white, axis=1)
+    cols = np.any(non_white, axis=0)
+    if rows.any() and cols.any():
+        rmin, rmax = np.where(rows)[0][[0, -1]]
+        cmin, cmax = np.where(cols)[0][[0, -1]]
+        bbox = (cmin, rmin, cmax + 1, rmax + 1)
+    else:
+        bbox = None
+    if bbox:
+        # Add small margin (20px at render scale)
+        margin = 20
+        bbox = (
+            max(0, bbox[0] - margin),
+            max(0, bbox[1] - margin),
+            min(img.width, bbox[2] + margin),
+            min(img.height, bbox[3] + margin),
+        )
+        img = img.crop(bbox)
+
+    # Render into matplotlib figure sized to image aspect ratio
+    dpi = 150
+    fig_w = img.width / dpi
+    fig_h = img.height / dpi
+    fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=dpi)
+    ax.imshow(img)
+    ax.axis("off")
+    fig.savefig(str(PDF_OUT), format="pdf", bbox_inches="tight", pad_inches=0.05, dpi=dpi)
+    plt.close(fig)
+    console.print(f"  Saved: {PDF_OUT.name}")
+except Exception as e:
+    console.print(f"[yellow]PDF crop failed ({e}), falling back to mmdc direct render[/yellow]")
+    result = subprocess.run(
+        [mmdc, "--input", str(MMD_FILE), "--output", str(PDF_OUT),
+         "--configFile", str(CONFIG_FILE), "--backgroundColor", "white", "--width", "1400"],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        console.print(f"[bold red]mmdc PDF error:[/bold red]\n{result.stderr}")
+        sys.exit(1)
+    console.print(f"  Saved: {PDF_OUT.name} (uncropped)")
 
 # Clean up temp config
 CONFIG_FILE.unlink(missing_ok=True)

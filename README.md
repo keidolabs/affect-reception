@@ -123,12 +123,13 @@ The core contribution. Uses PyTorch forward hooks to extract residual stream (`h
 | 17 | `experiments/17_v2_geometry/` | Representational geometry: PCA, cosine similarity, cluster tests | `pca_joint_*.png/svg` |
 | 18 | `experiments/18_v2_summary/` | Cross-model summary and synthesis | `summary_table.csv` |
 
-### Controls (Exp 19–20)
+### Controls (Exp 19–21)
 
 | # | Directory | Description |
 |---|-----------|-------------|
 | 19 | `experiments/19_zeroshot_control/` | Zero-shot probing (no training) as baseline |
 | 20 | `experiments/20_binary_confound_control/` | Binary classification controlling for token-length confound |
+| 21 | `experiments/21_binary_setb_probes/` | Binary affect detection (emotional vs neutral) on Set B, all 6 models |
 
 **Recommended run order:**
 ```bash

@@ -1,8 +1,8 @@
 # Experiment 17 — v2 Representational Geometry
 
 **Date:** 2026-02-25
-**Model:** gemma9b_inst (Llama-3.2-1B-Instruct)
-**Peak layer:** L21 (from Exp 13 probe results)
+**Models:** All 6 (llama1b_base, llama1b_inst, llama8b_base, llama8b_inst, gemma9b_base, gemma9b_inst)
+**Framework:** Analysis-only (loads Exp 11/12 activations at peak layer from Exp 13)
 
 ## Research Questions
 
@@ -10,16 +10,15 @@
 2. Is the structure organized by emotion (shared across sets) or by stimulus set?
 3. In Set B, does emotion dominate over topic (domain)?
 
-## Key Findings
+## Key Finding
 
-| Metric | Value |
-|--------|-------|
-| Silhouette by emotion | 0.0383 |
-| Silhouette by set | 0.1330 |
-| Emotion > set structure | ✗ |
-| Within-emo cross-set cosine similarity | 0.9558 |
-| Cross-emotion cosine similarity | 0.9581 |
-| Emotions dominating topic (Set B) | 6/8 |
+Set-level structure dominates over emotion-level structure in the joint geometry
+(silhouette by set > silhouette by emotion). This is a genuine negative result:
+while probes can linearly decode emotions within each set (Exp 13 AUROC ~1.0),
+the representations are not geometrically organized primarily by emotion when
+both sets are projected together. The linear probe finds directions that PCA
+and silhouette miss — consistent with the AUROC/silhouette dissociation observed
+throughout Phase 0/1.
 
 ## Methodology
 
@@ -31,8 +30,10 @@
 
 ## Outputs
 
-- `outputs/pca_joint_gemma9b_inst.png/.svg` — joint PCA visualization
-- `outputs/cosine_similarity_matrix_gemma9b_inst.png/.svg` — centroid similarity heatmap
-- `outputs/cross_topic_clustering_gemma9b_inst.png/.svg` — emotion vs topic comparison
-- `outputs/silhouette_scores_gemma9b_inst.csv` — silhouette and cosine metrics
-- `outputs/permutation_test_gemma9b_inst.csv` — permutation test results
+Per model (`{MODEL_KEY}` = llama1b_base, llama1b_inst, llama8b_base, llama8b_inst, gemma9b_base, gemma9b_inst):
+
+- `outputs/pca_joint_{MODEL_KEY}.png/.svg` — joint PCA visualization
+- `outputs/cosine_similarity_matrix_{MODEL_KEY}.png/.svg` — centroid similarity heatmap
+- `outputs/cross_topic_clustering_{MODEL_KEY}.png/.svg` — emotion vs topic comparison
+- `outputs/silhouette_scores_{MODEL_KEY}.csv` — silhouette and cosine metrics
+- `outputs/permutation_test_{MODEL_KEY}.csv` — permutation test results

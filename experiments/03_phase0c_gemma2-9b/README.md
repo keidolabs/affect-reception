@@ -60,6 +60,15 @@
 | 41 | 0.9812 | 0.0156 | global |
 
 
+## Methodology
+
+- **Framework:** HF `AutoModelForCausalLM` + MPS (float16) — NOT TransformerLens
+- **Extraction:** Final-token residual stream (`register_forward_hook` on `model.model.layers[l]`) at all 42 layers
+- **Probe:** 5-fold stratified CV, `LogisticRegression` (OvR, C=1.0, max_iter=1000), macro AUROC
+- **Probe normalization:** None (raw activations passed to classifier)
+- **Seeds:** 42 everywhere
+- **Note:** Gemma-2 alternating local (even) / global (odd) attention — no impact on residual stream extraction
+
 ## Outputs
 
 - `outputs/activations/set_a_residuals.npy` — shape (90, 42, 3584)

@@ -1,32 +1,13 @@
 # Experiment 15 — v2 Attention Pattern Analysis
 
 **Date:** 2026-02-25
-**Model:** gemma9b_inst (Llama-3.2-1B-Instruct)
+**Models:** All 6 (llama1b_base, llama1b_inst, llama8b_base, llama8b_inst, gemma9b_base, gemma9b_inst)
+**Framework:** Analysis-only (loads attention weights from Exp 11/12 .npz files, tokenizer only — no model forward passes)
+**Note:** Exploratory analysis. Results characterize attention patterns but do not establish causal claims.
 
 ## Research Question
 
 What does the ":" token attend to in Set A (keyword-rich) vs Set B (clinical)?
-
-## Key Findings
-
-| Metric | Set A | Set B | Difference |
-|--------|-------|-------|------------|
-| Peak emotion keyword attention layer | L24 (0.193) | L24 (0.136) | 0.057 |
-
-### Top sensitivity heads (L24):
-See `outputs/head_sensitivity_gemma9b_inst.csv` for full head-by-head breakdown.
-
-## Interpretation
-
-Set A shows higher emotion keyword attention than Set B at peak layer.
-This does not confirm that Set A attention is driven partly by lexical emotion words,
-while Set B relies on similar mechanisms.
-
-## Outputs
-
-- `outputs/head_sensitivity_gemma9b_inst.csv` — per-head emotion sensitivity
-- `outputs/attention_top_tokens_gemma9b_inst.csv` — top-attended tokens per layer
-- `outputs/attention_heatmap_gemma9b_inst.png/.svg` — visualizations
 
 ## Methodology
 
@@ -34,3 +15,11 @@ while Set B relies on similar mechanisms.
 2. For each (layer, head): identify top-attended token, classify it
 3. Token types: emotion_keyword, context_word, function_word, punctuation
 4. Head sensitivity = Set A emo_kw proportion − Set B emo_kw proportion
+
+## Outputs
+
+Per model (`{MODEL_KEY}` = llama1b_base, llama1b_inst, llama8b_base, llama8b_inst, gemma9b_base, gemma9b_inst):
+
+- `outputs/head_sensitivity_{MODEL_KEY}.csv` — per-head emotion sensitivity
+- `outputs/attention_top_tokens_{MODEL_KEY}.csv` — top-attended tokens per layer
+- `outputs/attention_heatmap_{MODEL_KEY}.png/.svg` — visualizations

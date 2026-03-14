@@ -1,54 +1,81 @@
-# Experiment 10 — Set C: Tak Replication Sanity Check
+# Experiment 10 — Methodology Consistency Check
 
-**Date:** 2026-02-25
-**Question:** Does prediction-task framing shift emotion consolidation from late to mid layers?
-**Gate:** Set C peak normalized depth in [40%, 75%] (mid-layer zone)
-**Status:** FAIL ✗ (0/4 models in mid-zone)
+**Date:** 2026-02-25 (original), 2026-03-13 (rewritten for methodological rigor)
+**Question:** Does prompt format (passive reading vs Tak few-shot) change what layer-wise probes measure?
+**Gate:** ≥3/4 models show consistent late-layer consolidation across both conditions
+**Status:** FAIL (2/4 consistent)
 
-## What This Tests
+## Why This Experiment Exists
 
-Internal validation experiment. One thing changes vs Phase 0:
-- **Suffix appended:** `"\n\nEmotion:"` — forces next-token prediction framing
-- **Extraction point:** final token `":"` of suffixed text (not end-of-narrative)
-- Everything else identical (same stimuli, same model, same probe)
+Before trusting 20 experiments of results, we need to verify that:
+1. Our core finding (late-layer emotion consolidation) isn't an artifact of prompt format
+2. Phase 0 results (passive reading) and v2 results (Tak prompt) agree when probed identically
+3. The extraction framework difference (TL+CPU for 1B vs HF+MPS for 8B/9B) isn't hiding bugs
 
-This replicates the task framing in Tak et al., where emotion consolidation was found
-in mid-layers (~40–75% depth) under prediction-task conditions. Phase 0 used passive
-reading (no suffix), which produced late-layer consolidation (~80–95% depth).
+## What Changed in the Rewrite (2026-03-13)
+
+The original Exp 10 had methodological problems:
+- Used a **third** prompt format ("\n\nEmotion:" suffix) that matched neither Phase 0 nor v2
+- Did NOT z-normalize probes (Phase 0 style), making comparison to v2 (Exp 13) invalid
+- Mixed TL+CPU (Llama-1B) with HF+MPS (8B/9B) without documenting the inconsistency
+- Called the condition "Set C" which collides with the actual Set C in Exp 20
+
+The rewrite loads existing activations from Phase 0 and v2, runs identical z-normalized
+probes on both, and directly compares. No new extraction needed.
+
+## What Is Controlled
+
+| Aspect | Phase 0 (Exp 00–03) | v2 (Exp 11) | Same? |
+|--------|---------------------|-------------|-------|
+| Llama-1B framework | TL + CPU + float32 | TL + CPU + float32 | ✓ |
+| 8B/9B framework | HF + MPS + float16 | HF + MPS + float16 | ✓ |
+| Stimuli | Set A, 80 emotional | Set A, 80 emotional | ✓ |
+| Probe method | z-norm LogReg 5-fold | z-norm LogReg 5-fold | ✓ (both re-probed here) |
+| Random seed | 42 | 42 | ✓ |
+
+## What Varies (the independent variable)
+
+| Aspect | Phase 0 | v2 |
+|--------|---------|-----|
+| Prompt format | Raw text (no framing) | Tak 2-shot + "Answer:" |
+| Extraction position | Final token of narrative | ":" token after "Answer:" |
 
 ## Results
 
-| Model | P0 peak (norm) | Set C peak (norm) | Set C AUROC | Shift + Gate |
-|-------|---------------|------------------|-------------|--------------|
-| Llama-3.2-1B | 87.5% | 93.3% (L14/15) | 0.9973 | +5.8pp ✗ |
-| Llama-3-8B (base) | 78.1% | 96.8% (L30/31) | 0.9929 | +18.7pp ✗ |
-| Llama-3-8B (instruct) | 93.8% | 80.6% (L25/31) | 0.9991 | -13.2pp ✗ |
-| Gemma-2-9B | 92.9% | 80.5% (L33/41) | 1.0000 | -12.4pp ✗ |
+| Model | Framework | P0 peak | P0 AUROC | v2 peak | v2 AUROC | Δ depth | Consistent? |
+|-------|-----------|---------|----------|---------|----------|---------|-------------|
+| Llama-3.2-1B | TL+CPU+f32 | L14 (93.3%) | 0.9884 | L11 (73.3%) | 1.0000 | -20.0pp | ✗ |
+| Llama-3-8B (base) | HF+MPS+f16 | L25 (80.7%) | 0.9938 | L17 (54.8%) | 1.0000 | -25.8pp | ✗ |
+| Llama-3-8B (instruct) | HF+MPS+f16 | L25 (80.7%) | 0.9812 | L31 (100.0%) | 1.0000 | +19.4pp | ✓ |
+| Gemma-2-9B | HF+MPS+f16 | L35 (85.4%) | 0.9875 | L32 (78.0%) | 1.0000 | -7.3pp | ✓ |
 
-**Mid-zone criterion:** normalized depth 40–75%
-
-## Behavioral Check
-
-Top-10 next-token predictions at ":" verified for one sample per emotion.
-See `outputs/behavioral_check_*.txt` for full details.
-
-## Outputs
-
-- `outputs/auroc_setc_vs_phase0_panel.png/.svg` — 4-panel comparison per model
-- `outputs/results_*.csv` — per-layer AUROC for each model
-- `outputs/summary.csv` — summary table
-- `outputs/behavioral_check_*.txt` — top-10 prediction checks
+**Consistency criterion:** both conditions peak in upper half (>50% depth) AND shift < 20pp.
 
 ## Interpretation
 
-If Set C peaks in the mid-zone [40–75%]:
-The late-layer consolidation in Phase 0/1 is explained by task framing (passive reading vs
-prediction). Both paradigms are valid but measure different things. Proceed with Phase 2 analysis
-using Phase 0/1 data, noting this methodological distinction.
+If consistent: Late-layer emotion consolidation is a genuine property of these models,
+not an artifact of how we prompt them. The Phase 0 findings and v2 findings measure
+the same underlying phenomenon. Proceed with confidence.
 
-If Set C still peaks late (>75%):
-Task framing alone does not shift the peak in these models. Possible explanations:
-(a) The Tak et al. result doesn't generalize to Llama/Gemma architectures;
-(b) Our suffix format differs from their stimuli in a critical way;
-(c) The late-layer localization in Phase 0/1 is a genuine property of these models,
-not a task-framing artifact. Document and proceed.
+If inconsistent: The prompt format matters more than expected. This doesn't invalidate
+the v2 pipeline (which is internally consistent), but it means Phase 0 results should
+be interpreted cautiously and not directly compared to v2 numbers.
+
+## Outputs
+
+- `outputs/consistency_comparison.png/.svg` — 4-panel overlay of Phase 0 vs v2 AUROC curves
+- `outputs/results_*.csv` — per-layer AUROC for both conditions, all models
+- `outputs/summary.csv` — comparison table
+
+## Confounds Acknowledged
+
+1. **Extraction position confound:** Phase 0 extracts at end-of-narrative, v2 at ":" after
+   prompt. These are different sequence positions with different context. A shift in peak
+   layer could reflect the model processing different amounts of text, not prompt format per se.
+2. **TL vs HF for 1B:** TransformerLens and HF transformers may compute slightly different
+   activations due to internal implementation differences. This only affects the Llama-1B
+   comparison. The 8B/9B models use HF+MPS in both conditions.
+3. **No normalization in original Phase 0 probes:** The original Phase 0 results (Exp 00–03)
+   did NOT z-normalize. This experiment re-probes Phase 0 activations WITH z-normalization,
+   so the numbers here differ from the original Phase 0 READMEs. This is intentional —
+   we're controlling for probe methodology.

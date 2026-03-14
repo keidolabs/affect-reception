@@ -40,8 +40,6 @@ Same extraction token (`:` at end of "Answer:"), same model, same stimuli.
 
 ## Results
 
-## Results
-
 **Date:** 2026-02-28
 **Model:** Llama-3.2-1B-Instruct
 **Activation type:** h (residual stream)
@@ -57,11 +55,6 @@ Same extraction token (`:` at end of "Answer:"), same model, same stimuli.
 ### Interpretation
 
 **Outcome 1** — Both probes robust to shot removal. Shots do not drive the signal. Confound eliminated.
-
-### Outputs
-
-- `outputs/probe_comparison.csv` — AUROC by layer, both conditions
-- `outputs/probe_comparison.png/.svg` — comparison plot
 
 ## Outputs
 
@@ -69,27 +62,3 @@ Same extraction token (`:` at end of "Answer:"), same model, same stimuli.
 - `outputs/probe_comparison.csv` — binary + 8-class AUROC by layer, both conditions
 - `outputs/probe_comparison.png/.svg` — comparison plot
 - `outputs/summary.md` — numeric summary
-
-
-## Results
-
-**Date:** 2026-02-28
-**Model:** Llama-3.2-1B-Instruct
-**Activation type:** h (residual stream)
-**Probe CV:** 5-fold stratified
-
-### Peak AUROC Comparison
-
-| Probe | Few-shot (Exp 12) | Zero-shot (Exp 19) | Delta |
-|-------|-------------------|-------------------|-------|
-| Binary (emotional vs neutral) | 1.0000 at L4 | 1.0000 at L4 | +0.0000 |
-| 8-class (clinical emotions)   | 0.9335 at L9 | 0.9377 at L9 | +0.0042 |
-
-### Interpretation
-
-**Outcome 1** — Both probes robust to shot removal. Shots do not drive the signal. Confound eliminated.
-
-### Outputs
-
-- `outputs/probe_comparison.csv` — AUROC by layer, both conditions
-- `outputs/probe_comparison.png/.svg` — comparison plot

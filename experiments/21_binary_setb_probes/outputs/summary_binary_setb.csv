@@ -1,0 +1,7 @@
+model,model_key,n_layers,peak_auroc,peak_layer,saturation_layer,norm_depth_peak,norm_depth_sat
+Llama-1B Instruct,llama1b_inst,16,1.0,4,4,0.25,0.25
+Llama-1B Base,llama1b_base,16,1.0,6,6,0.375,0.375
+Llama-8B Instruct,llama8b_inst,32,1.0,3,3,0.094,0.094
+Llama-8B Base,llama8b_base,32,1.0,5,4,0.156,0.125
+Gemma-9B Instruct,gemma9b_inst,42,1.0,6,4,0.143,0.095
+Gemma-9B Base,gemma9b_base,42,1.0,5,5,0.119,0.119
