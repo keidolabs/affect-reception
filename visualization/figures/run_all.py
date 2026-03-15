@@ -34,6 +34,7 @@ SCRIPTS = [
     "fig06_geometry.py",
     "fig07_scale_effect.py",
     "fig08_setc_validation.py",
+    "fig10_confusion.py",
     "figS1_attention.py",
     "figS2_components.py",
     "figS3_geometry_detail.py",
