@@ -1,13 +1,12 @@
 """
-Experiment 01 — Phase 0a: HF Smoke Test
+Experiment 01 — Phase 0a: TransformerLens Smoke Test
 Model: meta-llama/Meta-Llama-3-8B (32 layers, d_model=4096)
 Date: 2026-02-24
 
-Verifies model loads on MPS, architecture matches expectations, and hook-based
-activation extraction produces correct shapes. Uses HF transformers (not
-TransformerLens — see TL issue #1178 for MPS correctness concerns).
+Verifies model loads on CUDA via TransformerLens, architecture matches
+expectations, and cache-based activation extraction produces correct shapes.
 
-Run: uv run python experiments/01_phase0a_llama3-8b/smoke_test.py
+Run on Scrig: uv run python experiments/01_phase0a_llama3-8b/smoke_test.py
 """
 
 import os
@@ -17,7 +16,6 @@ import numpy as np
 from pathlib import Path
 from rich.console import Console
 from rich.table import Table
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
 console = Console()
 
@@ -29,8 +27,7 @@ OUTPUT_DIR = EXP_DIR / "outputs"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 MODEL_ID = "meta-llama/Meta-Llama-3-8B"
-DEVICE   = "mps"
-DTYPE    = torch.float16
+DEVICE   = "cuda"
 
 # ============================================================================
 # LOAD HF TOKEN
@@ -44,14 +41,18 @@ for line in env_path.read_text().splitlines():
 console.print("[bold cyan]HF token loaded[/bold cyan]")
 
 # ============================================================================
-# LOAD MODEL & TOKENIZER
+# LOAD MODEL WITH TRANSFORMERLENS
 # ============================================================================
 
 console.print(f"\n[bold cyan]Loading {MODEL_ID} on {DEVICE} (float16)...[/bold cyan]")
-console.print("First run: ~16GB download. Model is ~16GB in float16.")
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-model = AutoModelForCausalLM.from_pretrained(MODEL_ID, dtype=DTYPE).to(DEVICE)
+from transformer_lens import HookedTransformer
+
+model = HookedTransformer.from_pretrained(
+    MODEL_ID,
+    device=DEVICE,
+    dtype=torch.float16,
+)
 model.eval()
 console.print("[bold green]✓ Model loaded[/bold green]")
 
@@ -59,11 +60,10 @@ console.print("[bold green]✓ Model loaded[/bold green]")
 # VERIFY ARCHITECTURE
 # ============================================================================
 
-cfg = model.config
-n_layers = cfg.num_hidden_layers
-d_model  = cfg.hidden_size
-n_heads  = cfg.num_attention_heads
-d_head   = d_model // n_heads
+n_layers = model.cfg.n_layers
+d_model  = model.cfg.d_model
+n_heads  = model.cfg.n_heads
+d_head   = model.cfg.d_head
 
 checks = [
     ("n_layers", n_layers, 32,   "32 transformer layers"),
@@ -86,38 +86,28 @@ for name, actual, expected, _ in checks:
 console.print(table)
 
 # ============================================================================
-# FORWARD PASS + HOOK CHECK
+# FORWARD PASS + CACHE CHECK
 # ============================================================================
-# Verify that our hook-based extraction approach works correctly before
-# committing to the full 90-stimulus extraction run.
 
-console.print("\n[bold cyan]Testing hook-based activation extraction...[/bold cyan]")
+console.print("\n[bold cyan]Testing cache-based activation extraction...[/bold cyan]")
 test_text = "The kitchen counter still had the grocery list in his handwriting."
-inputs = tokenizer(test_text, return_tensors="pt").to(DEVICE)
-seq_len = inputs["input_ids"].shape[1]
+tokens = model.to_tokens(test_text)
+seq_len = tokens.shape[1]
 console.print(f"Test prompt: {seq_len} tokens")
 
-# Hook a single layer (mid-model) to verify shape and values
-hook_capture = {}
-
-def test_hook(module, input, output):
-    # Newer transformers returns hidden states as a plain tensor; older returns a tuple.
-    h = output[0] if isinstance(output, tuple) else output
-    hook_capture["resid_post"] = h[0, -1, :].detach().cpu().to(torch.float32).numpy()
-
-handle = model.model.layers[15].register_forward_hook(test_hook)
-
 with torch.no_grad():
-    out = model(**inputs, use_cache=False)
+    logits, cache = model.run_with_cache(
+        tokens,
+        names_filter=lambda name: "hook_resid_post" in name,
+    )
 
-handle.remove()
-
-act_l15 = hook_capture["resid_post"]
+# Check mid-layer activation shape and values
+act_l15 = cache["resid_post", 15][:, -1, :].squeeze().cpu().numpy()
 hook_shape_ok = act_l15.shape == (d_model,)
 hook_finite_ok = np.all(np.isfinite(act_l15))
 hook_nonzero_ok = act_l15.std() > 0.001
 
-console.print(f"  Layer 15 hook shape: {act_l15.shape} — {'[green]PASS[/green]' if hook_shape_ok else '[red]FAIL[/red]'}")
+console.print(f"  Layer 15 cache shape: {act_l15.shape} — {'[green]PASS[/green]' if hook_shape_ok else '[red]FAIL[/red]'}")
 console.print(f"  Values finite: {'[green]PASS[/green]' if hook_finite_ok else '[red]FAIL[/red]'}")
 console.print(f"  Non-trivial std={act_l15.std():.4f}: {'[green]PASS[/green]' if hook_nonzero_ok else '[red]FAIL[/red]'}")
 console.print(f"  mean={act_l15.mean():.4f}, std={act_l15.std():.4f}")
@@ -125,12 +115,7 @@ console.print(f"  mean={act_l15.mean():.4f}, std={act_l15.std():.4f}")
 if not (hook_shape_ok and hook_finite_ok and hook_nonzero_ok):
     all_pass = False
 
-# Quick behavioral check
-top5_ids = out.logits[0, -1, :].topk(5).indices.tolist()
-top5_tokens = [tokenizer.decode([tid]) for tid in top5_ids]
-console.print(f"  Next-token top-5: {top5_tokens}")
-
-del out, inputs
+del logits, cache
 
 # ============================================================================
 # REPORT
@@ -139,13 +124,13 @@ del out, inputs
 report = f"""Smoke Test Report — {MODEL_ID}
 ==========================================
 Date: 2026-02-24 | Device: {DEVICE} | Dtype: float16
-Framework: HF transformers (register_forward_hook, NOT TransformerLens)
+Framework: TransformerLens (HookedTransformer, run_with_cache)
 Status: {"PASS" if all_pass else "FAIL"}
 
 Architecture:
   n_layers: {n_layers}  d_model: {d_model}  n_heads: {n_heads}  d_head: {d_head}
 
-Hook test (layer 15, final token):
+Cache test (layer 15, final token):
   shape: {act_l15.shape}  mean: {act_l15.mean():.4f}  std: {act_l15.std():.4f}
 
 Gate: {"PASS — proceed to extract.py" if all_pass else "FAIL — do not proceed"}
