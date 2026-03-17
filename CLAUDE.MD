@@ -13,7 +13,7 @@ Mechanistic interpretability research into emotional representations in LLMs. Th
 ## Environment
 
 - **Python:** 3.12+ managed by `uv`
-- **Hardware:** Mac M1 Pro 32GB (MPS backend) · Vast.ai A6000 (CUDA)
+- **Hardware:** Mac M1 Pro 32GB (MPS backend) · Scrig local GPU rig (CUDA) · Vast.ai A6000 (CUDA)
 - **Run scripts:** `uv run python experiments/[name]/run.py`
 - **All deps in root** `pyproject.toml`
 
@@ -216,6 +216,38 @@ attn_at_final = outputs.attentions[layer_idx][0, :, -1, :]  # (n_heads, seq_len)
   del act
   torch.mps.empty_cache()
   ```
+
+---
+
+## Running GPU Experiments on Scrig
+
+**Scrig** is a local GPU rig standing next to the Mac: Ryzen 7, 64 GB RAM, RTX 5060 Ti 16 GB, Ubuntu 24.04.
+
+**Workflow split:** statistics & CPU work → Mac (MPS). GPU-heavy experiments → Scrig (CUDA).
+
+**How to run:** Claude provides the run command, user runs it manually in a second terminal.
+
+```bash
+# 1. Push from Mac
+cd ~/dev/keidolabs/research/emotion-circuits && git push
+
+# 2. SSH + tmux session
+ssh scrig
+tmux new -s exp              # or: tmux attach -t exp
+
+# 3. Pull + run
+cd ~/lab/studies/emotion-circuits
+git pull
+uv run python experiments/[name]/run.py
+
+# 4. Detach: Ctrl+B, then D (process keeps running)
+
+# 5. Check later
+ssh scrig
+tmux attach -t exp
+```
+
+**Script DEVICE flag:** scripts targeting scrig should use `DEVICE = "cuda"`. Keep `DEVICE = "mps"` for Mac-only scripts.
 
 ---
 
