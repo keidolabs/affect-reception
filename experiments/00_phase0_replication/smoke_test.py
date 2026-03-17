@@ -32,7 +32,7 @@ OUTPUT_DIR = EXP_DIR / "outputs"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 MODEL_ID = "meta-llama/Llama-3.2-1B"
-DEVICE = "cpu"  # CRITICAL: Never use MPS with TransformerLens (see GitHub issue #1178)
+DEVICE = "cuda"  # CUDA on scrig (RTX 5060 Ti) — TL works fine on CUDA, only MPS is broken
 
 # ============================================================================
 # LOAD HF TOKEN
@@ -59,7 +59,7 @@ from transformer_lens import HookedTransformer
 model = HookedTransformer.from_pretrained(
     MODEL_ID,
     device=DEVICE,
-    dtype=torch.float32,  # float32 on CPU — 1B model fits in ~4GB
+    dtype=torch.float16,  # float16 on CUDA — faster, fits easily in 16GB VRAM
 )
 model.eval()
 console.print("[bold green]✓ Model loaded[/bold green]")
@@ -217,8 +217,8 @@ console.print(f"\n[bold cyan]Device checks:[/bold cyan]")
 console.print(f"  Model device: {next(model.parameters()).device}")
 console.print(f"  Logits device: {logits.device}")
 console.print(f"  Cache device (resid_post, 0): {cache['resid_post', 0].device}")
-assert str(next(model.parameters()).device) == "cpu", "Model must be on CPU!"
-console.print("[bold green]✓ All on CPU — MPS correctly avoided[/bold green]")
+assert "cuda" in str(next(model.parameters()).device), "Model must be on CUDA!"
+console.print("[bold green]✓ All on CUDA[/bold green]")
 
 # ============================================================================
 # SAVE SMOKE TEST REPORT
@@ -247,8 +247,7 @@ Test Forward Pass:
   Tokens: {tokens.shape[1]}
   Logits shape: {logits.shape}
 
-CRITICAL: Device is CPU — MPS never used.
-(MPS produces silently incorrect results with TransformerLens — see GitHub issue #1178)
+Device: CUDA (scrig RTX 5060 Ti) — TransformerLens works correctly on CUDA.
 
 Gate: {"PASS — proceed to activation extraction" if all_pass else "FAIL — fix issues above before extracting"}
 """

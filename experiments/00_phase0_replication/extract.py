@@ -36,7 +36,7 @@ ACT_DIR = EXP_DIR / "outputs" / "activations"
 ACT_DIR.mkdir(parents=True, exist_ok=True)
 
 MODEL_ID = "meta-llama/Llama-3.2-1B"
-DEVICE = "cpu"  # CRITICAL: Never use MPS with TransformerLens (GitHub issue #1178)
+DEVICE = "cuda"  # CUDA on scrig (RTX 5060 Ti) — TL works fine on CUDA, only MPS is broken
 
 # Add project root to path for stimuli.loader import
 sys.path.insert(0, str(EXP_DIR.parent.parent))
@@ -74,14 +74,14 @@ set_a_sorted = sorted(set_a, key=lambda s: s.id)
 # LOAD MODEL WITH TRANSFORMERLENS
 # ============================================================================
 
-console.print(f"\n[bold cyan]Loading {MODEL_ID} on CPU (float32)...[/bold cyan]")
+console.print(f"\n[bold cyan]Loading {MODEL_ID} on CUDA (float16)...[/bold cyan]")
 
 from transformer_lens import HookedTransformer
 
 model = HookedTransformer.from_pretrained(
     MODEL_ID,
     device=DEVICE,
-    dtype=torch.float32,
+    dtype=torch.float16,
 )
 model.eval()
 
@@ -134,6 +134,7 @@ for stim_idx, stimulus in enumerate(track(set_a_sorted, description="Extracting.
     # Free cache and logits to avoid memory accumulation
     del logits, cache
     gc.collect()
+    torch.cuda.empty_cache()
 
 console.print(f"\n[bold green]✓ Extraction complete[/bold green]")
 console.print(f"Activations shape: {all_activations.shape}")
